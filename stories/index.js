@@ -10,7 +10,7 @@ import Mention from './Mention';
 import I18n from './I18n';
 import ToolbarHidden from './ToolbarHidden';
 import ImageUpload from './ImageUpload';
-import Embeddable from "./Embeddable";
+import Embeddable from './Embeddable';
 import ImageDataURI from './ImageDataURI';
 import SelectedOptions from './SelectedOptions';
 import FloatingToolbar from './FloatingToolbar';
@@ -21,6 +21,7 @@ import ConvertToMarkdown from './ConvertToMarkdown';
 import FocusBlurCallbacks from './FocusBlurCallbacks';
 import ConvertFromRawDraftContent from './ConvertFromRawDraftContent';
 import ConvertToRawDraftContent from './ConvertToRawDraftContent';
+import CustomBlockRenderMap from './CustomBlockRenderMap';
 
 import './styles.css';
 
@@ -39,9 +40,10 @@ storiesOf('CustomToolbar', module).add('story', () => <CustomToolbar />);
 storiesOf('FloatingToolbar', module).add('story', () => <FloatingToolbar />);
 storiesOf('ImageUpload and Alt attribute', module).add('story', () => <ImageUpload />);
 storiesOf('Image as data URI and preview', module).add('story', () => <ImageDataURI />);
-storiesOf("Embeddable with Callback", module).add("story", () => <Embeddable />);
+storiesOf('Embeddable with Callback', module).add('story', () => <Embeddable />);
 storiesOf('ConvertFromRawDraftContent', module).add('story', () => <ConvertFromRawDraftContent />);
 storiesOf('ConvertToRawDraftContent', module).add('story', () => <ConvertToRawDraftContent />);
 storiesOf('ConvertToHTML', module).add('story', () => <ConvertToHTML />);
 storiesOf('ConvertFromHTML', module).add('story', () => <ConvertFromHTML />);
 storiesOf('ConvertToMarkdown', module).add('story', () => <ConvertToMarkdown />);
+storiesOf('Custom BlockRenderMap', module).add('story', () => <CustomBlockRenderMap />);

@@ -99,7 +99,7 @@ const getImageComponent = config => class Image extends Component {
         onClick={this.removeEntity}
         className="rdw-image-deletion-option"
       >
-        X
+        X (remove)
       </Option>
     );
   }

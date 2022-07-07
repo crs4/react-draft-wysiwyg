@@ -101,7 +101,7 @@ const getImageComponent = config => class Image extends Component {
         onClick={this.removeEntity}
         className="rdw-image-deletion-option"
       >
-        X (remove)
+        X (remove image)
       </Option>
     );
   }
@@ -140,7 +140,7 @@ const getImageComponent = config => class Image extends Component {
           <ResizeImage
             src={src}
             alt={alt}
-            options={{ width, height }}
+            options={{ width:width }}
           />
 
           {

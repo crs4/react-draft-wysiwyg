@@ -4,7 +4,7 @@ import { EditorState, SelectionState, Modifier } from 'draft-js';
 import classNames from 'classnames';
 import Option from '../../components/Option';
 import ResizeImage from 'react-resize-image'
-import { Resizable, ResizableBox } from 'react-resizable';
+
 
 import './styles.css';
 
@@ -130,16 +130,11 @@ const getImageComponent = config => class Image extends Component {
         )}
       >
         <span className="rdw-image-imagewrapper">
-        <ResizableBox width={200} height={200} minConstraints={[100, 100]} maxConstraints={[300, 300]}>
-        <img
-            src={src}
-            alt={alt}
-            style={{
-              height,
-              width,
-            }}
-          />
-    </ResizableBox>
+        <ResizeImage
+        src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Tsunami_by_hokusai_19th_century.jpg?height=50%25"
+        alt="Tsunami bt hokusai"
+        options={{ width: 200 }}
+      />
           
 
           {/*

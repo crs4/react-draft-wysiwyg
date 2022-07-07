@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { EditorState, SelectionState, Modifier } from 'draft-js';
 import classNames from 'classnames';
 import Option from '../../components/Option';
-import ResizeImage from 'react-resize-image'
+import { RenderImage } from './RenderImage'; './RenderImage'
 
 
 import './styles.css';
@@ -130,22 +130,12 @@ const getImageComponent = config => class Image extends Component {
         )}
       >
         <span className="rdw-image-imagewrapper">
-        <ResizeImage
-        src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Tsunami_by_hokusai_19th_century.jpg?height=50%25"
-        alt="Tsunami bt hokusai"
-        options={{ width: 200 }}
-      />
-          
-
-          {/*
-          <ResizeImage
+          <RenderImage
             src={src}
             alt={alt}
-            options={{ width:width }}
+            width={width}
+            height={height}
           />
-           */}
-          
-
           {
             !isReadOnly() && hovered && (isAlignmentEnabled || isDeletionEnabled) ?
               <div

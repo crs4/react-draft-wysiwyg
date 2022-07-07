@@ -4,6 +4,7 @@ import { EditorState, SelectionState, Modifier } from 'draft-js';
 import classNames from 'classnames';
 import Option from '../../components/Option';
 import ResizeImage from 'react-resize-image'
+import { Resizable, ResizableBox } from 'react-resizable';
 
 import './styles.css';
 
@@ -101,7 +102,7 @@ const getImageComponent = config => class Image extends Component {
         onClick={this.removeEntity}
         className="rdw-image-deletion-option"
       >
-        X (remove image)
+        X (remove Image)
       </Option>
     );
   }
@@ -129,19 +130,26 @@ const getImageComponent = config => class Image extends Component {
         )}
       >
         <span className="rdw-image-imagewrapper">
-          {/*  <img
+        <ResizableBox width={200} height={200} minConstraints={[100, 100]} maxConstraints={[300, 300]}>
+        <img
             src={src}
             alt={alt}
             style={{
               height,
               width,
             }}
-          />*/}
+          />
+    </ResizableBox>
+          
+
+          {/*
           <ResizeImage
             src={src}
             alt={alt}
             options={{ width:width }}
           />
+           */}
+          
 
           {
             !isReadOnly() && hovered && (isAlignmentEnabled || isDeletionEnabled) ?

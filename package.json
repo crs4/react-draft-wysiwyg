@@ -59,6 +59,7 @@
     "html-to-draftjs": "^1.4.0",
     "linkify-it": "^2.0.3",
     "prop-types": "^15.6.0",
+    "react-resizable": "^3.0.4",
     "react-resize-image": "^1.0.4"
   },
   "peerDependencies": {

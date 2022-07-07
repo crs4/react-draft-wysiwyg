@@ -5,7 +5,7 @@ export const RenderImage = (props) => {
 
     const [imgWidth,setimgWidth] = useState(0)
     const [imgHeight,setimgHeight] = useState(0)
-    const maxDim = Math.min(window.innerWidth, window.innerHeight);
+    const maxDim = Math.min(window.innerWidth, window.innerHeight)*0.5;
     
     useEffect(()=>{
         const { width, height } = props;

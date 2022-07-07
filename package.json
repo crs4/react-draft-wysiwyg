@@ -54,7 +54,6 @@
     "webpack-bundle-analyzer": "^2.11.1"
   },
   "dependencies": {
-    "@babel/preset-env": "^7.18.6",
     "classnames": "^2.2.5",
     "draftjs-utils": "^0.9.3",
     "html-to-draftjs": "^1.4.0",

@@ -8,11 +8,14 @@ export const RenderImage = (props) => {
     const maxDim = Math.min(window.innerWidth, window.innerHeight)*0.5;
     
     useEffect(()=>{
-        const { width, height } = props;
+        const { width, height, src } = props;
           if (width>height)
             setimgWidth(width)
             else setimgHeight(height);
+            console.log(`RENDER IMAGE (LIB): width:${width} height:${height} src:${src}`);
         }
+
+        
     ,[])
 
 

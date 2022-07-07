@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { EditorState, SelectionState, Modifier } from 'draft-js';
 import classNames from 'classnames';
 import Option from '../../components/Option';
+import ResizeImage from 'react-resize-image'
+
 import './styles.css';
 
 const getImageComponent = config => class Image extends Component {
@@ -46,10 +48,10 @@ const getImageComponent = config => class Image extends Component {
     const blockKey = block.getKey();
     const afterKey = contentState.getKeyAfter(blockKey);
     const targetRange = new SelectionState({
-        anchorKey: blockKey,
-        anchorOffset: 0,
-        focusKey: afterKey,
-        focusOffset: 0
+      anchorKey: blockKey,
+      anchorOffset: 0,
+      focusKey: afterKey,
+      focusOffset: 0
     });
     let newContentState = Modifier.setBlockType(
       contentState,
@@ -99,7 +101,7 @@ const getImageComponent = config => class Image extends Component {
         onClick={this.removeEntity}
         className="rdw-image-deletion-option"
       >
-        ZZZZZ (remove)
+        X (remove)
       </Option>
     );
   }
@@ -127,14 +129,20 @@ const getImageComponent = config => class Image extends Component {
         )}
       >
         <span className="rdw-image-imagewrapper">
-          <img
+          {/*  <img
             src={src}
             alt={alt}
             style={{
               height,
               width,
             }}
+          />*/}
+          <ResizeImage
+            src={src}
+            alt={alt}
+            options={{ width, height }}
           />
+
           {
             !isReadOnly() && hovered && (isAlignmentEnabled || isDeletionEnabled) ?
               <div
@@ -145,22 +153,22 @@ const getImageComponent = config => class Image extends Component {
                   },
                 )}
               >
-              {
-                isAlignmentEnabled ?
-                  this.renderAlignmentOptions()
-                  :
-                  false
-              }
-              {
-                isDeletionEnabled ?
-                  this.renderDeletionOption()
-                  :
-                  false
-              }
+                {
+                  isAlignmentEnabled ?
+                    this.renderAlignmentOptions()
+                    :
+                    false
+                }
+                {
+                  isDeletionEnabled ?
+                    this.renderDeletionOption()
+                    :
+                    false
+                }
               </div>
               :
               undefined
-            }
+          }
         </span>
       </span>
     );

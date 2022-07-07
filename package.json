@@ -1,6 +1,6 @@
 {
   "name": "react-draft-wysiwyg",
-  "version": "1.13.3",
+  "version": "1.13.4",
   "description": "A wysiwyg on top of DraftJS.",
   "main": "dist/react-draft-wysiwyg.js",
   "repository": {
@@ -25,6 +25,7 @@
     "draft-js": "^0.10.4",
     "draftjs-to-html": "^0.8.3",
     "draftjs-to-markdown": "^0.5.1",
+    "embed-video": "^2.0.4",
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-16": "^1.1.0",
     "eslint": "^4.12.1",
@@ -50,15 +51,15 @@
     "style-loader": "^0.20.2",
     "url-loader": "^0.6.2",
     "webpack": "^3.10.0",
-    "webpack-bundle-analyzer": "^2.11.1",
-    "embed-video": "^2.0.4"
+    "webpack-bundle-analyzer": "^2.11.1"
   },
   "dependencies": {
     "classnames": "^2.2.5",
     "draftjs-utils": "^0.9.3",
     "html-to-draftjs": "^1.4.0",
     "linkify-it": "^2.0.3",
-    "prop-types": "^15.6.0"
+    "prop-types": "^15.6.0",
+    "react-resize-image": "^1.0.4"
   },
   "peerDependencies": {
     "draft-js": "^0.10.x",

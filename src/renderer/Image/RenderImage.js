@@ -9,6 +9,11 @@ export const RenderImage = (props) => {
     
     useEffect(()=>{
         const { width, height, src } = props;
+          if (width=="auto" && height=="auto")
+          {
+            setimgWidth(maxDim);
+            return;
+          }
           if (width>height)
             setimgWidth(width)
             else setimgHeight(height);

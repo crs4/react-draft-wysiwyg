@@ -99,10 +99,40 @@ class LayoutComponent extends Component {
     });
   };
 
+
+  //@audit codice per la aggiunta della immagine!
   addImageFromState: Function = (): void => {
     const { imgSrc, alt } = this.state;
     let { height, width } = this.state;
     const { onChange } = this.props;
+
+    // PATCH
+
+    //@audit PATCH -> forzare il ridimensionamento della immagine se troppo grande
+    const maxDimX = window.innerWidth * 0.5;
+    const maxDimY = window.innerHeight * 0.5;
+    let image_width = width;
+    let image_height = height;
+
+    reactImageSize(imgSrc).then(({ width, height }) => {
+      console.log(`RENDER IMAGE (resize in addImageFromState width:${width}, height:${height})`);
+      if (width > height)  {
+        image_width = `${Math.min(maxDimX,width)}px`;
+        image_height = "auto";
+      } 
+      else
+          {
+            image_width = "auto";
+            image_height = `${Math.min(maxDimY,height)}px`;
+          }
+
+          console.log(`RENDER IMAGE (resize in preview height:${image_height} width:${image_width}`);
+          onChange(imgSrc, image_height, image_width, alt);
+      }).catch((err) => {console.log("error getting image size:",err)})  
+
+    // ------------------- //
+
+    /*
     if (!isNaN(height)) {
       height += 'px';
     }
@@ -110,6 +140,7 @@ class LayoutComponent extends Component {
       width += 'px';
     }
     onChange(imgSrc, height, width, alt);
+    */
   };
 
   showImageURLOption: Function = (): void => {

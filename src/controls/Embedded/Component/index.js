@@ -40,29 +40,7 @@ class LayoutComponent extends Component {
     const { onChange } = this.props;
     const { embeddedLink, height, width } = this.state;
 
-    //@audit PATCH -> forzare il ridimensionamento della immagine se troppo grande
-    const maxDimX = window.innerWidth * 0.5;
-    const maxDimY = window.innerHeight * 0.5;
-    let image_width = width;
-    let image_height = height;
-
-    reactImageSize(embeddedLink).then(({ width, height }) => {
-      console.log(`RENDER IMAGE (resize in preview width:${width}, height:${height})`);
-      if (width > height)  {
-        image_width = Math.min(maxDimX,width)
-        image_height = "auto";
-      } 
-      else
-          {
-            image_width = "auto";
-            image_height = Math.min(maxDimY,height);
-          }
-
-          console.log(`RENDER IMAGE (resize in preview height:${image_height} width:${image_width}`);
-          onChange(embeddedLink, image_height, image_width);
-      }).catch((err) => {console.log("error getting image size:",err)})  
-
-    //onChange(embeddedLink, height, width);
+    onChange(embeddedLink, height, width);
   };
 
   updateValue: Function = (event: Object): void => {

@@ -138,7 +138,7 @@ const getImageComponent = config => class Image extends Component {
             height={height}
           />
           
-          */}f
+          */}
           <img
             src={src}
             alt={alt}

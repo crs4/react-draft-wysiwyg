@@ -47,7 +47,7 @@ class LayoutComponent extends Component {
     let image_height = height;
 
     reactImageSize(embeddedLink).then(({ width, height }) => {
-      console.log("RENDER IMAGE (resize in preview");
+      console.log("RENDER IMAGE (resize in preview)");
       if (isNaN(width) && (width > height || isNaN(height)))  {
         image_width = Math.min(maxDimX,image_width)
         image_height = "auto";

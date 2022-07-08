@@ -110,12 +110,29 @@ class LayoutComponent extends Component {
     // PATCH
 
     //@audit PATCH -> forzare il ridimensionamento della immagine se troppo grande
-    const maxDimX = window.innerWidth * 0.5;
-    const maxDimY = window.innerHeight * 0.5;
+    const maxDimX = isNaN(width) ? window.innerWidth * 0.5 : Math.min(window.innerWidth * 0.5,width);
+    const maxDimY = isNaN(height) ? window.innerWidth * 0.5 : Math.min(window.innerHeight * 0.5,height);
     let image_width = width;
     let image_height = height;
 
+    console.log(`RENDER IMAGE (resize in addImageFromState proposed width:${width}, height:${height})`);
+    // if the user set size, leave this size
+    if (!isNaN(image_width) && !isNaN(image_height)) {
+      onChange(imgSrc, image_height, image_width, alt);
+      return;
+    }
+    
+    if (!isNaN(image_width)) {
+      onChange(imgSrc, image_height, `${Math.min(maxDimX,width)}px`, alt);
+      return;
+    }
+    if (!isNaN(image_height)) {
+      onChange(imgSrc,`${Math.min(maxDimY,height)}px`, image_width , alt);
+      return;
+    }
+    
     reactImageSize(imgSrc).then(({ width, height }) => {
+
       console.log(`RENDER IMAGE (resize in addImageFromState width:${width}, height:${height})`);
       if (width > height)  {
         image_width = `${Math.min(maxDimX,width)}px`;

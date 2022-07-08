@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import reactImageSize from 'react-image-size';
 
 import Option from '../../../components/Option';
 import Spinner from '../../../components/Spinner';

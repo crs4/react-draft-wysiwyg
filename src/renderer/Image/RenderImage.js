@@ -2,6 +2,17 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import reactImageSize from 'react-image-size';
 
+
+const getImageSize = (src) =>
+{
+    let image_width = "auto";
+    let image_height = "auto";
+    reactImageSize(src).then(({ width, height }) => {
+    if (width > height) image_width = width;
+        else image_height = height;
+    }).catch((err) => {console.log("error getting image size:",err)})  
+}
+
 export const RenderImage = (props) => {
 
     const [imgWidth, setimgWidth] = useState(0)

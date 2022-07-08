@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import reactImageSize from 'react-image-size';
 
 import { stopPropagation } from '../../../utils/common';
 import Option from '../../../components/Option';
@@ -38,7 +39,27 @@ class LayoutComponent extends Component {
   onChange: Function = (): void => {
     const { onChange } = this.props;
     const { embeddedLink, height, width } = this.state;
-    onChange(embeddedLink, height, width);
+    
+    //@audit PATCH -> forzare il ridimensionamento della immagine se troppo grande
+    const maxDimX = window.innerWidth * 0.5;
+    const maxDimY = window.innerHeight * 0.5;
+    let image_width = width;
+    let image_height = height;
+
+    reactImageSize(embeddedLink).then(({ width, height }) => {
+      if (width > height)  {
+        image_width = Math.min(maxDimX,image_width)
+        image_height = "auto";
+      } 
+      else 
+          {
+            image_width = "auto";
+            image_height = Math.min(maxDimY,image_height);
+          }
+          onChange(embeddedLink, image_height, image_width);
+      }).catch((err) => {console.log("error getting image size:",err)})  
+
+    //onChange(embeddedLink, height, width);
   };
 
   updateValue: Function = (event: Object): void => {

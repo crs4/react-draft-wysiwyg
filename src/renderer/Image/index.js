@@ -130,7 +130,16 @@ const getImageComponent = config => class Image extends Component {
         )}
       >
         <span className="rdw-image-imagewrapper">
-          <RenderImage
+          {/* 
+           <RenderImage
+            src={src}
+            alt={alt}
+            width={width}
+            height={height}
+          />
+          
+          */}f
+          <img
             src={src}
             alt={alt}
             width={width}

@@ -110,8 +110,10 @@ class LayoutComponent extends Component {
     // PATCH
 
     //@audit PATCH -> forzare il ridimensionamento della immagine se troppo grande
-    const maxDimX = isNaN(width) ? window.innerWidth * 0.5 : Math.min(window.innerWidth * 0.5,width);
-    const maxDimY = isNaN(height) ? window.innerWidth * 0.5 : Math.min(window.innerHeight * 0.5,height);
+    const xscalefactor = 0.5
+    const yscalefactor = 0.5
+    const maxDimX = isNaN(width) ? window.innerWidth * xscalefactor  : Math.min(window.innerWidth * xscalefactor ,width);
+    const maxDimY = isNaN(height) ? window.innerHeight * yscalefactor : Math.min(window.innerHeight * yscalefactor,height);
     let image_width = width;
     let image_height = height;
 
